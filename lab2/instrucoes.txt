@@ -1,0 +1,16 @@
+INTRODUCAO:
+0. Utilizacao da chave de encriptacao:
+    -> Inteiro que e' somado ao valor ASCII correspondente a cada caracter da mensagem do cliente;
+1. Quando e' lancada uma mensagem do cliente para o servidor, o terceiro argumento indica a chave de encriptacao e os seguintes a mensagem a encriptar;
+2. O servidor encarrega-se de encriptar a mensagem e de retornar a mesma;
+
+INSTRUCOES:
+0. Comecar por compilar o co'digo do servidor e o cliente em pastas diferentes com os comandos:
+    mvn compile -> Compilar
+
+1. Comecar por executar o servidor numa janela do terminal:
+    mvn exec:java -> Executar
+    
+2. Editar o terceiro argumento no ficheiro socket-client/pom.xml na linha 43 para especificar uma chave de encriptacao diferente;
+3. Editar o quarto argumento e seguintes no ficheiro socket-client/pom.xml na linha 43 para especificar uma mensagem diferente;
+4. Executar o cliente (mvn exec:java) numa janela do terminal diferente;
