@@ -36,3 +36,14 @@ checkwinner_1_svc(void *argp, struct svc_req *rqstp)
 
 	return &result;
 }
+
+char **
+statistics_1_svc(void *argp, struct svc_req *rqstp)
+{
+	static char *result = NULL;
+	result = malloc(MAX_BUFFER_LEN);
+	statistics(result);
+
+	return &result;
+}
+

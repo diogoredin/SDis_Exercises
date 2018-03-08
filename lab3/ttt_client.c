@@ -17,10 +17,16 @@ void ttt_1( char *host ) {
 	int *winner;
 	char *checkwinner_1_arg;
 
+	char **statistics;
+	char *statistics_1_arg;
+
 	/* Player number - 0 or 1 and Square selection number for turn */
-	int noPlay = TTT_UNUSED_PLAY_RES;
 	int player = 0;
 	int go = 0;
+
+	/* Init Invalid Playres */
+	int noPlay = TTT_UNUSED_PLAY_RES;
+	play_res = &noPlay;
 
 	/* Create a client */
 	clnt = clnt_create(host, TTT, V1, "udp");
@@ -47,12 +53,25 @@ void ttt_1( char *host ) {
 			scanf("%d", &go);
 
 			if ( go == 0 ) {
+
+				/* Needed because the user didnt use this turn to play */
 				play_res = &noPlay;
 				continue;
-			}
 
-			if ( go == -1 ) {
+			} else if ( go == -1 ) {
+
+				/* Print the statistics of the game */
+				statistics = statistics_1((void*)&statistics_1_arg, clnt);
+				if ( statistics == (char **) NULL ) {
+					clnt_perror (clnt, "call failed");
+				}
+
+				printf("%s\n", *statistics);
+
+				/* Needed because the user didnt use this turn to play */
+				play_res = &noPlay;
 				continue;
+
 			}
 
 			/* Group the arguments of the play for sending to the server */

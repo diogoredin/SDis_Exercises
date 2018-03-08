@@ -120,3 +120,16 @@ int checkWinner() {
 	pthread_mutex_unlock (&mutex);
 	return result; 
 }
+
+
+/* Returns statistics of the game so far */
+void statistics( char *buffer ) {
+
+	pthread_mutex_lock(&mutex);
+
+	int player_0 = (numPlays + 1) / 2;
+	int player_1 = (numPlays / 2);
+
+   	snprintf(buffer, MAX_BUFFER_LEN, "\nNumber of plays: %d : %d", player_0, player_1);
+	pthread_mutex_unlock (&mutex);
+}
