@@ -1,5 +1,6 @@
 package ttt;
 
+import java.lang.Math;
 import java.rmi.*;
 import java.rmi.registry.*;
 import java.rmi.server.UnicastRemoteObject;
@@ -80,6 +81,16 @@ public class TTTServant extends UnicastRemoteObject implements TTTService {
 		}
 		// unlock on return
 
+	}
+
+	/** Make a game play on behalf of provided player. */
+	public boolean random(int player) throws RemoteException {
+
+		int play = (int) Math.round( 1 + ( Math.random() * (9 - 1) ));
+		int row = --play / 3;
+		int column = play % 3;
+
+		return play(row, column, player);
 	}
 
 	/**

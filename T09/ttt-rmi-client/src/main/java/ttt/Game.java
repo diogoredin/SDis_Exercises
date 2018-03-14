@@ -18,11 +18,11 @@ public class Game {
 			System.out.println("Found server");
 
 			keyboardSc = new Scanner(System.in);
-			
+
 			Game g = new Game();
 			g.playGame();
 			g.congratulate();
-
+			
 		} catch (RemoteException e) {
 			System.out.println("tttService: " + e.getMessage());
 		} catch (Exception e) {
@@ -39,24 +39,32 @@ public class Game {
 							+ "where you want to place your %c (or 0 to refresh the board): \n",
 					player, (player == 1) ? 'X' : 'O');
 			play = keyboardSc.nextInt();
-		} while (play > 9 || play < 0);
+		} while (play > 9 && play != 99 || play < 0);
 		return play;
 	}
 
 	public void playGame() throws RemoteException {
 		int play;
 		boolean playAccepted;
-
 		do {
 			player = ++player % 2;
 			do {
 				System.out.println(ttt.currentBoard());
 				play = readPlay();
-				if (play != 0) {
+				if (play == 99) {
+					playAccepted = ttt.random(player);
+					while ( !playAccepted ) {
+						playAccepted = ttt.random(player);
+					}
+					if (!playAccepted)
+						System.out.println("Invalid play! Try again.");
+				}
+				else if ( play != 99 & play != 0) {
 					playAccepted = ttt.play(--play / 3, play % 3, player);
 					if (!playAccepted)
 						System.out.println("Invalid play! Try again.");
-				} else
+				} 
+				else
 					playAccepted = false;
 			} while (!playAccepted);
 			winner = ttt.checkWinner();
