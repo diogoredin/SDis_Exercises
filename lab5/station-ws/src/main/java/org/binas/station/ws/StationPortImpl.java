@@ -5,6 +5,8 @@ import javax.jws.WebService;
 import org.binas.station.domain.Station;
 import org.binas.station.domain.Coordinates;
 import org.binas.station.domain.exception.BadInitException;
+import org.binas.station.domain.exception.NoSlotAvailException;
+import org.binas.station.domain.exception.NoBinaAvailException;
 import org.binas.station.ws.BadInit_Exception;
 
 /**
@@ -46,21 +48,29 @@ public class StationPortImpl implements StationPortType {
 	/** Retrieve information about station. */
 	@Override
 	public StationView getInfo() {
-		// TODO
-		return null;
+		return buildStationView(Station.getInstance());
 	}
-	
+
 	/** Return a bike to the station. */
 	@Override
 	public int returnBina() throws NoSlotAvail_Exception {
-		// TODO
-		return -1;
+		int binas = 0;
+		try {
+			binas = Station.getInstance().returnBina();
+		} catch(NoSlotAvailException e) {
+			throwNoSlotAvail(e.getMessage());
+		}
+		return binas;
 	}
 	
 	/** Take a bike from the station. */
 	@Override
 	public void getBina() throws NoBinaAvail_Exception {
-		// TODO
+		try {
+			Station.getInstance().getBina();
+		} catch(NoBinaAvailException e) {
+			throwNoBinaAvail(e.getMessage());
+		}
 	}
 
 	// Test Control operations -----------------------------------------------
