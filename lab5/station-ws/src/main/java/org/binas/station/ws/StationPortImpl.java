@@ -7,7 +7,6 @@ import org.binas.station.domain.Coordinates;
 import org.binas.station.domain.exception.BadInitException;
 import org.binas.station.domain.exception.NoSlotAvailException;
 import org.binas.station.domain.exception.NoBinaAvailException;
-import org.binas.station.ws.BadInit_Exception;
 
 /**
  * This class implements the Web Service port type (interface). The annotations
@@ -37,13 +36,6 @@ public class StationPortImpl implements StationPortType {
 	}
 
 	// Main operations -------------------------------------------------------
-
-	/** testInit
-	@Override
-	public void testInit() {
-		// TODO
-		return null;
-	}  */
 	
 	/** Retrieve information about station. */
 	@Override

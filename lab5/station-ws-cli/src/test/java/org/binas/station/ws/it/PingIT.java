@@ -8,11 +8,6 @@ import org.junit.Test;
  */
 public class PingIT extends BaseIT {
 
-	// tests
-	// assertEquals(expected, actual);
-
-	// public String ping(String x)
-
 	@Test
 	public void pingEmptyTest() {
 		Assert.assertNotNull(client.testPing("test"));
