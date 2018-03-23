@@ -83,7 +83,6 @@ public class StationPortImpl implements StationPortType {
 		builder.append("Hello ").append(inputMessage);
 		builder.append(" from ").append(wsName);
 		return builder.toString();
-
 	}
 
 	/** Return all station variables to default values. */

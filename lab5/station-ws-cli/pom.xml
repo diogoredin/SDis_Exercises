@@ -17,8 +17,8 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 
-		<wsdl.directory>${basedir}/../station-ws/src/main/resources</wsdl.directory>
-		<wsdl.filename>station.wsdl</wsdl.filename>
+		<wsdl.directory>${basedir}/../station-ws/target/classes</wsdl.directory>
+		<wsdl.filename>station.1_0.wsdl</wsdl.filename>
 
 		<mainclass>org.binas.station.ws.cli.StationClientApp</mainclass>
 
