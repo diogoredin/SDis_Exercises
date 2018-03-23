@@ -22,3 +22,6 @@ lab4/ttt-rmi-interface/target/maven-status/maven-compiler-plugin/compile/default
 lab4/ttt-rmi-interface/target/maven-archiver/pom.properties
 lab4/ttt-rmi-interface/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
 lab4/ttt-rmi-interface/target/ttt-rmi-interface-1.0-SNAPSHOT.jar
+*.class
+lab5/.project
+lab5/.settings/org.eclipse.m2e.core.prefs
