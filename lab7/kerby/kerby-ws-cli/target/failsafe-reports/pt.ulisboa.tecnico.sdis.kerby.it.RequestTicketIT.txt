@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: pt.ulisboa.tecnico.sdis.kerby.it.RequestTicketIT
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.068 sec <<< FAILURE! - in pt.ulisboa.tecnico.sdis.kerby.it.RequestTicketIT
+testSimpleRequest(pt.ulisboa.tecnico.sdis.kerby.it.RequestTicketIT)  Time elapsed: 0.137 sec  <<< ERROR!
+com.sun.xml.ws.client.ClientTransportException: HTTP transport error: java.net.ConnectException: Connection refused (Connection refused)
+	at pt.ulisboa.tecnico.sdis.kerby.it.RequestTicketIT.testSimpleRequest(RequestTicketIT.java:23)
+Caused by: java.net.ConnectException: Connection refused (Connection refused)
+	at pt.ulisboa.tecnico.sdis.kerby.it.RequestTicketIT.testSimpleRequest(RequestTicketIT.java:23)
+

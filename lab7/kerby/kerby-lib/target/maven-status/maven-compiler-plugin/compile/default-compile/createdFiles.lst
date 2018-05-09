@@ -1,0 +1,10 @@
+pt/ulisboa/tecnico/sdis/kerby/KerbyException.class
+pt/ulisboa/tecnico/sdis/kerby/Auth.class
+pt/ulisboa/tecnico/sdis/kerby/SessionKey.class
+pt/ulisboa/tecnico/sdis/kerby/Ticket.class
+pt/ulisboa/tecnico/sdis/kerby/RequestTime.class
+pt/ulisboa/tecnico/sdis/kerby/SecurityHelper.class
+pt/ulisboa/tecnico/sdis/kerby/TicketCollectionEntry.class
+pt/ulisboa/tecnico/sdis/kerby/XMLHelper.class
+pt/ulisboa/tecnico/sdis/kerby/CipherClerk.class
+pt/ulisboa/tecnico/sdis/kerby/TicketCollection.class

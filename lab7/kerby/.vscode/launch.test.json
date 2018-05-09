@@ -1,0 +1,60 @@
+{
+    "run": {
+        "default": "",
+        "items": [
+            {
+                "name": "kerby-ws",
+                "projectName": "kerby-ws",
+                "workingDirectory": "/Users/goncalo/Downloads/kerby",
+                "args": [],
+                "vmargs": [],
+                "preLaunchTask": ""
+            },
+            {
+                "name": "kerby-ws-cli",
+                "projectName": "kerby-ws-cli",
+                "workingDirectory": "/Users/goncalo/Downloads/kerby",
+                "args": [],
+                "vmargs": [],
+                "preLaunchTask": ""
+            },
+            {
+                "name": "kerby-lib",
+                "projectName": "kerby-lib",
+                "workingDirectory": "/Users/goncalo/Downloads/kerby",
+                "args": [],
+                "vmargs": [],
+                "preLaunchTask": ""
+            }
+        ]
+    },
+    "debug": {
+        "default": "",
+        "items": [
+            {
+                "name": "kerby-ws",
+                "projectName": "kerby-ws",
+                "workingDirectory": "/Users/goncalo/Downloads/kerby",
+                "args": [],
+                "vmargs": [],
+                "preLaunchTask": ""
+            },
+            {
+                "name": "kerby-ws-cli",
+                "projectName": "kerby-ws-cli",
+                "workingDirectory": "/Users/goncalo/Downloads/kerby",
+                "args": [],
+                "vmargs": [],
+                "preLaunchTask": ""
+            },
+            {
+                "name": "kerby-lib",
+                "projectName": "kerby-lib",
+                "workingDirectory": "/Users/goncalo/Downloads/kerby",
+                "args": [],
+                "vmargs": [],
+                "preLaunchTask": ""
+            }
+        ]
+    }
+}
