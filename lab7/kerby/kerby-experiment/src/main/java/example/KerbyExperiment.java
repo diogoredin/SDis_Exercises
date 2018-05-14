@@ -3,6 +3,7 @@ package example;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+import java.util.Date;
 
 import java.security.Key;
 import java.security.NoSuchAlgorithmException;
@@ -96,7 +97,7 @@ public class KerbyExperiment {
         Ticket ticket = new Ticket(cipheredTicket, serverKey);
         String ticketY = ticket.getY();
 
-        if (!serverName.equals(ticketY)) {
+        if (!validServerName.equals(ticketY)) {
             System.out.println("Ticket data doesn't match this server's name");
         }
 
@@ -104,13 +105,13 @@ public class KerbyExperiment {
         // Auth auth2 = new Auth(cipheredAuth, serverKey); ??? TODO
         String authX = auth.getX();
 
-        if (!clientName.equals(authX)) {
+        if (!validClientName.equals(authX)) {
             System.out.println("Authenticator data doesn't match client's name");
         }
 
         // (3) reply with a RequestTime class from kerby-lib
         Date authDate = auth.getTimeRequest();
-		RequestTime requestTime = new RequestTime(authTime);
+		RequestTime requestTime = new RequestTime(authDate);
 
         // TODO REVIEW THESE LNES
         System.out.println("Ticket: " + ticket.toString() + "\n");
