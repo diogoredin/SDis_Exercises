@@ -25,3 +25,11 @@ lab4/ttt-rmi-interface/target/ttt-rmi-interface-1.0-SNAPSHOT.jar
 *.class
 lab5/.project
 lab5/.settings/org.eclipse.m2e.core.prefs
+*.jar
+*.jar
+*.xml
+*.lst
+*.lst
+*.txt
+lab7/kerby/kerby-ws/target/jaxws/stale/.f6e4a140be55904d09f94d9c5d89a5a36f91702c
+*.jar
