@@ -1,6 +1,4 @@
 pt/ulisboa/tecnico/sdis/kerby/SessionKeyAndTicketView.class
-pt/ulisboa/tecnico/sdis/kerby/cli/KerbyClient.class
-pt/ulisboa/tecnico/sdis/kerby/cli/KerbyClientApp.class
 pt/ulisboa/tecnico/sdis/kerby/RequestTicketResponse.class
 pt/ulisboa/tecnico/sdis/kerby/CipheredView.class
 pt/ulisboa/tecnico/sdis/kerby/KerbyPortType.class
@@ -14,4 +12,3 @@ pt/ulisboa/tecnico/sdis/kerby/RequestTicket.class
 pt/ulisboa/tecnico/sdis/kerby/ObjectFactory.class
 pt/ulisboa/tecnico/sdis/kerby/BadTicketRequest.class
 pt/ulisboa/tecnico/sdis/kerby/TicketView.class
-pt/ulisboa/tecnico/sdis/kerby/cli/KerbyClientException.class

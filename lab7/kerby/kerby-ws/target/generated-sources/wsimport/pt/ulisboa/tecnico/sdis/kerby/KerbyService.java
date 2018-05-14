@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "KerbyService", targetNamespace = "http://kerby.sdis.tecnico.ulisboa.pt/", wsdlLocation = "file:/Users/goncalo/Downloads/kerby/kerby-ws/../kerby-contract/KerbyService.wsdl")
+@WebServiceClient(name = "KerbyService", targetNamespace = "http://kerby.sdis.tecnico.ulisboa.pt/", wsdlLocation = "file:/Users/goncalo/SDis_Exercises/lab7/kerby/kerby-ws/../kerby-contract/KerbyService.wsdl")
 public class KerbyService
     extends Service
 {
@@ -30,7 +30,7 @@ public class KerbyService
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("file:/Users/goncalo/Downloads/kerby/kerby-ws/../kerby-contract/KerbyService.wsdl");
+            url = new URL("file:/Users/goncalo/SDis_Exercises/lab7/kerby/kerby-ws/../kerby-contract/KerbyService.wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }

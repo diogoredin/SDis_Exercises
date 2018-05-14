@@ -35,44 +35,90 @@ public class KerbyExperiment {
 
             System.out.printf("Loaded %d properties%n", properties.size());
 
-        // client-side code experiments
-        System.out.println("Experiment with Kerberos client-side processing");
-        System.out.println("...TODO...");
+        } catch (IOException e) {
+            System.out.printf("Failed to load configuration: %s%n", e);
+        }
+
+        /*
+         * CLIENT-SIDE PART
+         */
+
+        System.out.println("[ CLIENT ] Experiment with Kerberos client-side processing");
+
+        // necessary client/server credentials
+        String validClientName = "alice@T09.binas.org";
+        String validClientPassword = "WD5zra6C";
+        String validServerName = "binas@T09.binas.org";
+        String validServerPassword = "VOL6yuFj";
         
+        int validDuration = 30;
+
+        // not really
+        // String wsURL = properties.getProperty("ws.url");
+        // KerbyClient client = new KerbyClient(wsURL);
+
+        // create KerbyClient at specified URL
+        KerbyClient client = new KerbyClient("http://sec.sd.rnl.tecnico.ulisboa.pt:8888/kerby");
+        System.out.println("KerbyClient created at http://sec.sd.rnl.tecnico.ulisboa.pt:8888/kerby");
+
+        // generate client/server keys
+        Key clientKey = SecurityHelper.generateKeyFromPassword(validClientPassword);
+        Key serverKey = SecurityHelper.generateKeyFromPassword(validServerPassword);
+        
+        // generate nonce to be used for the ticket
         SecureRandom randomGenerator = new SecureRandom();
-
-        String wsURL = properties.getProperty("ws.url");
-        KerbyClient client = new KerbyClient(wsURL);
-
-        Key clientKey = SecurityHelper.generateKeyFromPassword("WD5zra6C");
-		Key serverKey = SecurityHelper.generateKeyFromPassword("VOL6yuFj");
 		long nounce = randomGenerator.nextLong();
-		
-		SessionKeyAndTicketView result = client.requestTicket("alice@T09.binas.org", "binas@T09.binas.org", nounce, 30);
-		
-		CipheredView cipheredSessionKey = result.getSessionKey();
-		CipheredView cipheredTicket = result.getTicket();
-		
-		SessionKey sessionKey = new SessionKey(cipheredSessionKey, clientKey);
-		
-		Ticket ticket = new Ticket(cipheredTicket, serverKey);
-		long timeDiff = ticket.getTime2().getTime() - ticket.getTime1().getTime();
-
-        System.out.println();
-
-		// server-side code experiments
-        System.out.println("Experiment with Kerberos server-side processing");
         
+        // (1) get session key and ticket view
+		SessionKeyAndTicketView result = client.requestTicket(validClientName, validServerName, nounce, validDuration);
+        System.out.println("Session Key and Ticket View received");
+
+        // (2) open Kcs session key with its Kc key
+		CipheredView cipheredSessionKey = result.getSessionKey();
+        SessionKey sessionKey = new SessionKey(cipheredSessionKey, clientKey);
+        
+        // (3) save ticket for later
+        CipheredView cipheredTicket = result.getTicket();
+
+        // (4) create authenticator
+		// long timeDiff = ticket.getTime2().getTime() - ticket.getTime1().getTime();
+        Date currDate = new Date();
+        Auth auth = new Auth(validClientName, currDate);
+        
+
+        /*
+         * SERVER-SIDE PART
+         */
+		
+        System.out.println("[ SERVER ] Experiment with Kerberos server-side processing");
+        
+        // (1) open ticket with its Ks key and validate it
+        Ticket ticket = new Ticket(cipheredTicket, serverKey);
+        String ticketY = ticket.getY();
+
+        if (!serverName.equals(ticketY)) {
+            System.out.println("Ticket data doesn't match this server's name");
+        }
+
+        // (2) open authenticator with the Kcs session key and validate it
+        // Auth auth2 = new Auth(cipheredAuth, serverKey); ??? TODO
+        String authX = auth.getX();
+
+        if (!clientName.equals(authX)) {
+            System.out.println("Authenticator data doesn't match client's name");
+        }
+
+        // (3) reply with a RequestTime class from kerby-lib
+        Date authDate = auth.getTimeRequest();
+		RequestTime requestTime = new RequestTime(authTime);
+
+        // TODO REVIEW THESE LNES
         System.out.println("Ticket: " + ticket.toString() + "\n");
 		System.out.println("Session key: " + sessionKey.toString() + "\n");
 
         System.out.println();
 		
 		System.out.println("Bye!");
-
-        } catch (IOException e) {
-            System.out.printf("Failed to load configuration: %s%n", e);
-        }
 
         System.out.println();
 
