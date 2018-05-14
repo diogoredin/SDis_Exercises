@@ -86,6 +86,8 @@ public class KerbyExperiment {
         Date currDate = new Date();
         Auth auth = new Auth(validClientName, currDate);
         
+        System.out.println();
+        
 
         /*
          * SERVER-SIDE PART
@@ -114,6 +116,9 @@ public class KerbyExperiment {
 		RequestTime requestTime = new RequestTime(authDate);
 
         // TODO REVIEW THESE LNES
+        System.out.println();
+        System.out.println();
+
         System.out.println("Ticket: " + ticket.toString() + "\n");
 		System.out.println("Session key: " + sessionKey.toString() + "\n");
 
