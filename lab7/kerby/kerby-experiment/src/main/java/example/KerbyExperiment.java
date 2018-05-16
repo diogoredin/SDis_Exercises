@@ -87,15 +87,6 @@ public class KerbyExperiment {
 		Date currDate = new Date();
 		Auth auth = new Auth(validClientName, currDate);
 
-		// (5) Create message authetication code.
-		KeyGenerator keyGenClient = KeyGenerator.getInstance("HmacSHA256");
-
-		// Initializes the Key Generator with the key size - 128 bytes.
-		keyGenClient.init(128);
-	
-		// Generates the AES secret key.
-		SecretKey macKeyClient = keyGenClient.generateKey();
-
 		// Instantiates the MAC cipher.
 		Mac cipherClient = Mac.getInstance("HmacSHA256");
 
@@ -143,21 +134,12 @@ public class KerbyExperiment {
 		RequestTime requestTime = new RequestTime(authDate);
 		CipheredView cipheredRequestTime = requestTime.cipher(ticketMasterKey);
 
-		// TODO REVIEW THESE LNES
 		System.out.println();
 		System.out.println();
 
+		/* These are shared */
 		System.out.println("Ticket: " + ticket.toString() + "\n");
 		System.out.println("Session key: " + sessionKey.toString() + "\n");
-		
-		// (6) Create the message authetication code.
-		KeyGenerator keyGenServer = KeyGenerator.getInstance("HmacSHA256");
-
-		// Initializes the Key Generator with the key size - 128 bytes.
-		keyGenServer.init(128);
-	
-		// Generates the AES secret key.
-		SecretKey macKeyServer = keyGenServer.generateKey();
 
 		// Instantiates the MAC cipher.
 		Mac cipherServer = Mac.getInstance("HmacSHA256");
