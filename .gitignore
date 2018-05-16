@@ -1,35 +1,40 @@
-vscode/
-.DS_Store
-lab1/.metadata/*
-lab2/.metadata/*
-lab4/.vscode/settings.json
-lab4/ttt-rmi-server/.classpath
-lab4/ttt-rmi-server/.project
-lab4/ttt-rmi-server/.settings/org.eclipse.core.resources.prefs
-lab4/ttt-rmi-server/.settings/org.eclipse.jdt.core.prefs
-lab4/ttt-rmi-server/.settings/org.eclipse.m2e.core.prefs
-lab4/ttt-rmi-interface/.settings/org.eclipse.core.resources.prefs
-lab4/ttt-rmi-interface/.settings/org.eclipse.m2e.core.prefs
-lab4/ttt-rmi-interface/.settings/org.eclipse.jdt.core.prefs
-lab4/ttt-rmi-client/.settings/org.eclipse.core.resources.prefs
-lab4/ttt-rmi-client/.settings/org.eclipse.jdt.core.prefs
-lab4/ttt-rmi-client/.settings/org.eclipse.m2e.core.prefs
-lab4/ttt-rmi-client/.project
-lab4/ttt-rmi-client/.classpath
-lab4/ttt-rmi-interface/.classpath
-lab4/ttt-rmi-interface/.project
-lab4/ttt-rmi-interface/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
-lab4/ttt-rmi-interface/target/maven-archiver/pom.properties
-lab4/ttt-rmi-interface/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
-lab4/ttt-rmi-interface/target/ttt-rmi-interface-1.0-SNAPSHOT.jar
+# Compiled class file
 *.class
-lab5/.project
-lab5/.settings/org.eclipse.m2e.core.prefs
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
 *.jar
-*.jar
-*.xml
-*.lst
-*.lst
-*.txt
-lab7/kerby/kerby-ws/target/jaxws/stale/.f6e4a140be55904d09f94d9c5d89a5a36f91702c
-*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# Eclipse
+.classpath
+.project
+.settings/
+bin/
+
+# Mac
+.DS_Store
+
+# Maven
+target/
+
+# Images
+*.png
+
+#VS Code
+*.vscode
